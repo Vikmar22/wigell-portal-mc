@@ -1,0 +1,28 @@
+server:
+    port: 8585
+spring:
+    application:
+        name: wigell-mc
+    datasource:
+        url: jdbc:mysql://localhost:3306/wigell_mc_db
+        username: ${SBA_USER:root}
+        password: ${SBA_USER:root}
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                naming:
+                    physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+                format_sql: true
+
+    boot:
+        admin:
+            client:
+                url: http://localhost:8590
+management:
+    endpoints:
+        web:
+        exposure:
+            include: health,info
